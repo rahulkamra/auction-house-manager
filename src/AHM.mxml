@@ -5,16 +5,14 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import model.GameItemVO;
+			
 			import mx.core.FlexGlobals;
 			import mx.core.IFlexDisplayObject;
 			import mx.managers.PopUpManager;
 			protected function onAddClick(event:MouseEvent):void
 			{
-				var createPopUp:IFlexDisplayObject = PopUpManager.createPopUp(FlexGlobals.topLevelApplication as DisplayObject,AddItem,true);
-				PopUpManager.centerPopUp(createPopUp);
-				
-				
-				
+				AddGameItem.show(new GameItemVO());
 			}
 		]]>
 	</fx:Script>

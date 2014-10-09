@@ -1,5 +1,7 @@
 package model
 {
+	import flash.filesystem.File;
+	
 	import managers.SingletonManager;
 	
 	import mx.collections.ArrayCollection;
@@ -15,16 +17,17 @@ package model
 		{
 			return SingletonManager.getInstance(AHML) as AHML;
 		}
+			
 		
+		public var currentGameName:String = "ArcheAge";
 		
-		public var currentGameName:String;
-		
-		public function get currentGameDir():String
+		public function get currentGameDir():File
 		{
 			if(currentGameName == "")
-				return "";
+				return null;
 			
-			return "/"+currentGameName+"/";
+			var nativePath:String = File.applicationDirectory.resolvePath("AHM\\Data\\"+currentGameName).nativePath
+			return new File(nativePath);
 		}
 		
 		
